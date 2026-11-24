@@ -1,0 +1,123 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Mon Nov 23 21:28:05 2026
+| Host         : Busy_Irene running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file SOC_control_sets_placed.rpt
+| Design       : SOC
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    45 |
+|    Minimum number of control sets                        |    45 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    95 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    45 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     3 |
+| >= 8 to < 10       |     5 |
+| >= 10 to < 12      |     5 |
+| >= 12 to < 14      |     3 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    23 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              86 |           31 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             161 |           53 |
+| Yes          | No                    | No                     |             359 |          155 |
+| Yes          | No                    | Yes                    |              16 |            4 |
+| Yes          | Yes                   | No                     |             443 |          145 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------+-----------------------------------------+---------------------------+------------------+----------------+--------------+
+| Clock Signal |              Enable Signal              |      Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------+-----------------------------------------+---------------------------+------------------+----------------+--------------+
+|  CW/clk      | SPI/mosi1_out                           | SPI/mosi_i_1_n_0          |                1 |              1 |         1.00 |
+|  CW/clk      | UART_RX/bitn[3]_i_1_n_0                 | CW/SR[0]                  |                2 |              4 |         2.00 |
+|  CW/clk      | SPI/edges[3]_i_2_n_0                    | CPU/start_q_reg[0]        |                1 |              4 |         4.00 |
+|  CW/clk      | CPU/rptr0                               | CW/SR[0]                  |                2 |              5 |         2.50 |
+|  CW/clk      | UART_RX/wptr                            | CW/SR[0]                  |                1 |              5 |         5.00 |
+|  CW/clk      | VGA/blink_cnt0                          | CW/SR[0]                  |                1 |              6 |         6.00 |
+|  CW/clk      | UART_RX/cnt[7]_i_1_n_0                  |                           |                2 |              6 |         3.00 |
+|  CW/clk      | CPU/md_count[5]_i_1_n_0                 | CW/reset_cnt_reg[1]_1[0]  |                2 |              6 |         3.00 |
+|  CW/clk      | SPI/shift[7]_i_1_n_0                    | CW/SR[0]                  |                2 |              8 |         4.00 |
+|  CW/clk      | SPI/rx_data[7]_i_1_n_0                  | CW/SR[0]                  |                3 |              8 |         2.67 |
+|  CW/clk      | CPU/E[1]                                | CW/SR[0]                  |                3 |              8 |         2.67 |
+|  CW/clk      | CPU/E[0]                                | CW/SR[0]                  |                2 |              8 |         4.00 |
+|  CW/clk      | UART_RX/shift__0                        |                           |                1 |              8 |         8.00 |
+|  CW/clk      |                                         | VGA/hcnt[9]_i_1_n_0       |                3 |             10 |         3.33 |
+|  CW/clk      | VGA/vcnt                                | CW/SR[0]                  |                3 |             10 |         3.33 |
+|  CW/clk      | CPU/EM_addr_reg[21]_1[0]                |                           |                3 |             10 |         3.33 |
+|  CW/clk      | UART_RX/cnt[7]_i_1_n_0                  | UART_RX/cnt[15]_i_1_n_0   |                4 |             10 |         2.50 |
+|  CW/clk      |                                         | UART/cnt0_0               |                3 |             11 |         3.67 |
+|  CW/clk      | CW/resetn                               | CPU/EM_result[11]_i_1_n_0 |                5 |             12 |         2.40 |
+|  CW/clk      | CPU/p_2_in                              | CPU/EM_addr_reg[22]_1     |                5 |             12 |         2.40 |
+|  CW/clk      | UART_RX/p_1_in                          |                           |                2 |             12 |         6.00 |
+|  CW/clk      |                                         | CW/ms_div_reg_2_sn_1      |                4 |             15 |         3.75 |
+|  CW/clk      | VGA/frame_cnt_q0                        | CW/SR[0]                  |                4 |             16 |         4.00 |
+|  CW/clk      | CW/SR[0]                                | CW/hold                   |                4 |             16 |         4.00 |
+|  CW/clk      | SPI/cnt                                 | SPI/cnt[0]_i_1__1_n_0     |                4 |             16 |         4.00 |
+|  CW/clk      | CPU/EM_addr_reg[21]_4[0]                | CW/SR[0]                  |                7 |             16 |         2.29 |
+|  CW/clk      | CPU/p_2_in                              |                           |               12 |             20 |         1.67 |
+|  CW/clk      | CPU/DE_instr[31]_i_2_n_0                | CW/SR[0]                  |               15 |             31 |         2.07 |
+|  CW/clk      | CW/reset_cnt_reg[1]_0[0]                |                           |               13 |             32 |         2.46 |
+|  CW/clk      | RegisterBank_reg_r1_0_31_12_17_i_21_n_0 |                           |               19 |             32 |         1.68 |
+|  CW/clk      | CW/millis                               | CW/SR[0]                  |                8 |             32 |         4.00 |
+|  CW/clk      | CPU/DE_pc[31]_i_1_n_0                   |                           |               14 |             32 |         2.29 |
+|  CW/clk      | CPU/DE_pc[31]_i_1_n_0                   | CPU/DE_rs2[31]_i_1_n_0    |                9 |             32 |         3.56 |
+|  CW/clk      | CPU/DE_pc[31]_i_1_n_0                   | CPU/DE_rs1[31]_i_1_n_0    |               13 |             32 |         2.46 |
+|  CW/clk      | CPU/md_result[31]_i_1_n_0               |                           |               10 |             32 |         3.20 |
+|  CW/clk      | CPU/md_rem[31]_i_2_n_0                  | CPU/md_rem[31]_i_1_n_0    |                7 |             32 |         4.57 |
+|  CW/clk      | CPU/EM_addr_reg[21]_2[0]                | CW/SR[0]                  |               15 |             32 |         2.13 |
+|  CW/clk      | CPU/md_quot[31]_i_1_n_0                 |                           |               14 |             32 |         2.29 |
+|  CW/clk      | CPU/imem_en                             | CW/SR[0]                  |               10 |             33 |         3.30 |
+|  CW/clk      | CW/reset_cnt_reg[1]_1[0]                |                           |               20 |             50 |         2.50 |
+|  CW/clk      | CPU/MW_valid                            | CW/SR[0]                  |               16 |             64 |         4.00 |
+|  CW/clk      |                                         |                           |               31 |             86 |         2.77 |
+|  CW/clk      | CPU/MW_wen                              |                           |               11 |             88 |         8.00 |
+|  CW/clk      | CW/resetn                               |                           |               47 |            105 |         2.23 |
+|  CW/clk      |                                         | CW/SR[0]                  |               43 |            125 |         2.91 |
++--------------+-----------------------------------------+---------------------------+------------------+----------------+--------------+
+
+

@@ -1,0 +1,19 @@
+Memory map (the scaffold's, extended)
+0x000000 - 0x00FFFF  RAM, code + data (was 6 kB, now 64 kB)
+0x400000         IO page, one register per word-address bit as in the
+                 scaffold (address = 0x400000 + (4 << bit)):
+bit 0  0x400004  LEDS       RW  16 LEDs
+bit 1  0x400008  UART_DAT   W   byte to send     R  received byte (takes it from the FIFO)
+bit 2  0x400010  UART_CNTL  R   bit 9: busy sending, bit 8: received byte waiting,
+                                bit 10: receive overrun
+bit 3  0x400020  SPI_DAT    W   start an 8-bit transfer   R  byte received
+bit 4  0x400040  SPI_CNTL   RW  bit 0: chip select pin level (1 = not selected)
+                            R   bit 8: transfer in progress
+bit 5  0x400080  SPI_DIV    RW  SCLK = clk / (2 * (SPI_DIV + 1)), >= 1
+bit 6  0x400100  SWITCHES   R   bits 15:0 switches, bit 16 button up, 17 left, 18 right, 19 down
+bit 7  0x400200  MILLIS     R   milliseconds since reset
+
+0x600000 - 0x601FFF  VGA text console (VgaText.sv): 80 x 30 cells of
+                   {bg[3:0], fg[3:0], char[7:0]}, status at +0x1F00,
+                        cursor at +0x1F04
+0x800000 - 0x801FFF  boot ROM (BOOT_FROM_SD = 1): SD card loader
